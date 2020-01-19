@@ -3,10 +3,17 @@
 
 import sys
 
-args = sys.argv[1:]
-if args:
-  name = args[0]
-  print(f'Hello, {name}!')
-else:
-  print('Hello, World!')
+def greet(name):
+    return f'Hello, {name}!'
+    
+def test_greet():
+    assert greet('World') == 'Hello, World!'
+    assert greet('Terra Firma') == 'Hello, Terra Firma!'
+    
+def main():
+    args = sys.argv[1:]
+    name = args[0] if args else 'World'
+    print(greet(name))
 
+if _name_ == '_main_':
+    main()
